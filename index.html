@@ -330,7 +330,7 @@
             </div>
 
             <div class="col m7 s12">
-              <form>
+              <form name="rbh-contact-form">
                 <div class="card-panel">
                   <h5>Silahkan isi form dibawah ini</h5>
                   <div class="input-field">
@@ -404,6 +404,20 @@
         });
 
 
+
+      </script>
+
+
+      <script>
+         const scriptURL = 'https://script.google.com/macros/s/AKfycbx8LvMZvrUj1LCN-3HGN2GJO16D0T85LKXvUC2Eg3-SsdqA1881gN5hEF6k28sJNgZkXg/exec';
+          const form = document.forms['rbh-contact-form']
+
+        form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => console.log('Success!', response))
+          .catch(error => console.error('Error!', error.message))
+      });
 
       </script>
     </body>
